@@ -25,5 +25,5 @@ aws iam attach-role-policy --role-name eks-alb-ingress-controller --policy-arn a
 aws iam attach-role-policy --role-name eks-alb-ingress-controller --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
 
 echo "Annotating the ingress controller service account"
-kubectl annotate serviceaccount -n kube-system alb-ingress-controller \
+kubectl annotate --overwrite serviceaccount -n kube-system alb-ingress-controller \
 eks.amazonaws.com/role-arn=$ROLE_ARN
