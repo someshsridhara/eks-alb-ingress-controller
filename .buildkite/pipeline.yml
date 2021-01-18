@@ -5,6 +5,8 @@ env:
   POLICY_NAME: "AWSLoadBalancerControllerIAMPolicy"
   
 steps:
+  - block: "Confirm Apply"
+    prompt: "Are you sure we can apply this?"
   - label: ":male-scientist: Deploy RBAC for Ingress.."
     command:
       - ".buildkite/scripts/deploy-rbac.sh"
